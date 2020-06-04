@@ -1,0 +1,14 @@
+@startuml
+
+actor Usuario
+
+Usuario -> TestCase: ejecutar
+TestCase -> Pacman: comer(pellet)
+Pacman -> Pellet: debilitarFantasmas
+loop para cada Fantasma
+        Pellet -> Fantasma: debilitar
+        Fantasma -> EstadoDebilitado ** : new
+        return estadoNuevo
+end
+
+@enduml

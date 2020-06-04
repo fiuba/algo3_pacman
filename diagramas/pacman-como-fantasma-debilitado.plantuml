@@ -1,0 +1,13 @@
+@startuml
+
+actor Usuario
+
+Usuario -> TestCase: ejecutar
+TestCase -> Pacman: comer(fantasma)
+Pacman -> Fantasma: chocar (self)
+Fantasma -> EstadoNormal : chochar(pacman)
+EstadoNormal -> Pacman: matar()
+
+Fantasma -> EstadoDebilitado : chochar(pacman)
+
+@enduml

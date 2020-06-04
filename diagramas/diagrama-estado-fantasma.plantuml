@@ -1,0 +1,14 @@
+@startuml
+
+[*] --> EstadoEncerrado
+EstadoEncerrado -> EstadoNormal: [dejo guarida]
+EstadoNormal --> EstadoDebilitado: Pacman/comer(Pellet)
+EstadoDebilitado --> EstadoEnRecuperacion: [arribo a guarida]
+EstadoEnRecuperacion --> EstadoNormal: [dejar guarida]
+
+EstadoNormal ---> [*]
+EstadoEncerrado ---> [*]
+EstadoDebilitado ---> [*]
+EstadoEnRecuperacion ---> [*]
+
+@enduml

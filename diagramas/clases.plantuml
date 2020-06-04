@@ -1,0 +1,45 @@
+@startuml
+
+class Pacman {
+        -vivo Boolean
+        
+        Pacman()
+        
+        comer(f Pinky) Pinky
+        comer(p Pellet pellet)
+        matar()
+}
+
+Pacman .. Pellet
+Pacman .. Pinky
+Pacman .> PacmanSinVida : <<instanciate>>
+
+class Pinky {
+        debilitar()
+        chocar(pacman Pacman )
+}
+
+interface Estado {
+        chocar(pacman Pacman)
+}
+Estado <|.. EstadoNormal
+Estado <|.. EstadoDebilitado
+
+class EstadoNormal {
+        chocar(pacman Pacman)
+}
+
+class EstadoDebilitado {
+        chocar(pacman Pacman)
+}
+
+Pinky *- Estado
+
+class Pellet {
+        debilitarFantasmas()
+}
+Pellet o- Pinky
+
+class PacmanSinVida
+
+@enduml
