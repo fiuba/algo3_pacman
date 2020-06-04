@@ -1,4 +1,6 @@
 @startuml
+Title: Modelo del pacman
+
 
 class Pacman {
         -vivo Boolean
