@@ -1,5 +1,6 @@
 package ar.edu.uba.fi;
 
+import jdk.internal.org.objectweb.asm.commons.RemappingClassAdapter;
 import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
@@ -10,6 +11,7 @@ import static org.junit.jupiter.api.Assertions.*;
 public class JuegoPacmanTest {
     @Test
     public void testDummy() {
+
         assertEquals(1, 1);
     }
 
@@ -25,16 +27,39 @@ public class JuegoPacmanTest {
         });
     }
 
+//    @Test
+//    public void pacmanComePelletLosFantasmasSeDebilitan() {
+//        Pacman pacman = new Pacman();
+//        Pinky pinky = new Pinky();
+//        Pellet pellet = new Pellet(pinky);
+//
+//        pacman.comer(pellet);
+//
+//        assertTrue(pinky.estaDebilitado());
+//    }
+
     @Test
-    public void pacmanComeElPeleteLosFantasmasSeDebilitanElPacanLoscomeEstosVanGuarida() {
-        Pinky f = new Pinky();
-        Pellet pellet = new Pellet(f);
+    public void pacmanComeElPeleteLosFantasmasSeDebilitanElPacmanLoscomeEstosVanGuarida() {
+        Pinky pinky = new Pinky();
+        Pellet pellet = new Pellet(pinky);
 
         Pacman pacman = new Pacman();
 
         pacman.comer(pellet);
-        pacman.comer(f);
-        pacman.comer(f);
+        pacman.comer(pinky);
+        pacman.comer(pinky);
+
+        // shoudnt: raise:
+
+        // Opcion 1
+        //        assertTrue( pinky.enGuarida())
+
+        // Opcion 2
+        //  pacman.comer(pinky);
+        //
+        //  assertTrue(pacman.estaMuerto());
+
+        //  assertFalse(pacman.estaMuerto());
 
     }
 }

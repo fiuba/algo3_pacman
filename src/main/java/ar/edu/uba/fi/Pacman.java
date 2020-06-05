@@ -1,28 +1,28 @@
 package ar.edu.uba.fi;
 
 public class Pacman {
-    private boolean vivo;
+    private EstadoPacman estado;
 
     public Pacman() {
-        this.vivo = true;
+        
+        estado = new PacmanVivo(this);
     }
 
-    public Pinky comer(Pinky f) {
+    public void comer(Pinky f) {
 
-        if ( !vivo ) {
-            throw new PacmanSinVidaException();
-        }
 
-        f.chocar(this);
-
-        return f;
+        this.estado = this.estado.comer(f);
     }
 
     public void comer(Pellet pellet) {
+
+
         pellet.debilitarFantasmas();
     }
 
-    public void matar() {
-        this.vivo = false;
+    public EstadoPacman matar() {
+        estado = new PacmanMuerto();
+
+        return estado;
     }
 }

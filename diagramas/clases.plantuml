@@ -4,9 +4,9 @@ Title: Modelo del pacman
 
 class Pacman {
         -vivo Boolean
-        
+
         Pacman()
-        
+
         comer(f Pinky) Pinky
         comer(p Pellet pellet)
         matar()
@@ -14,28 +14,36 @@ class Pacman {
 
 Pacman .. Pellet
 Pacman .. Pinky
-Pacman .> PacmanSinVida : <<instanciate>>
+Pacman .....> PacmanSinVida : <<instanciate>>
+Pacman *- EstadoPacman
+
+interface EstadoPacman {
+    comer(f Pinky) EstadoPacman
+}
+
+EstadoPacman <|.. PacmanMuerto
+EstadoPacman <|.. PacmanVivo
 
 class Pinky {
         debilitar()
         chocar(pacman Pacman )
 }
 
-interface Estado {
-        chocar(pacman Pacman)
+interface EstadoFantasma {
+        chocar(pacman Pacman) EstadoPacman
 }
-Estado <|.. EstadoNormal
-Estado <|.. EstadoDebilitado
+EstadoFantasma <|.. EstadoNormal
+EstadoFantasma <|.. EstadoDebilitado
 
 class EstadoNormal {
-        chocar(pacman Pacman)
+        chocar(pacman Pacman) EstadoPacman
 }
 
 class EstadoDebilitado {
-        chocar(pacman Pacman)
+        chocar(pacman Pacman) EstadoPacman
 }
 
-Pinky *- Estado
+Pinky *- EstadoFantasma
 
 class Pellet {
         debilitarFantasmas()

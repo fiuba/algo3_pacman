@@ -7,7 +7,7 @@ Usuario -> TestCase: ejecutar
 TestCase -> Pacman: comer(fantasma)
 Pacman -> PacmanVivo: comer(fantasma)
 PacmanVivo -> Fantasma: chocar (self)
-
-Fantasma -> EstadoDebilitado : chochar(pacman)
+Fantasma -> EstadoNormal : chochar(pacman)
+EstadoNormal -> Pacman: matar()
 
 @enduml

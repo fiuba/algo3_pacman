@@ -1,14 +1,14 @@
 package ar.edu.uba.fi;
 
 public class Pellet {
-    private Pinky fantasma;
+    private final Pinky fantasma;
 
-    public Pellet(Pinky fantasma) {
+    public Pellet(Pinky pinky) {
 
-        this.fantasma = fantasma;
+        this.fantasma = pinky;
     }
 
     public void debilitarFantasmas() {
-        fantasma.debilitar();
+        this.fantasma.debilitar();
     }
 }

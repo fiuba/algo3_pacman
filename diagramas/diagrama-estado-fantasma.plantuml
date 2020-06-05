@@ -4,6 +4,7 @@
 EstadoEncerrado -> EstadoNormal: [dejo guarida]
 EstadoNormal --> EstadoDebilitado: Pacman/comer(Pellet)
 EstadoDebilitado --> EstadoEnRecuperacion: [arribo a guarida]
+EstadoDebilitado --> EstadoNormal: [timeout]
 EstadoEnRecuperacion --> EstadoNormal: [dejar guarida]
 
 EstadoNormal ---> [*]

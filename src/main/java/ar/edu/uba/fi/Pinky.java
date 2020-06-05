@@ -2,18 +2,20 @@ package ar.edu.uba.fi;
 
 public class Pinky {
 
-    private EstadoNormal estado;
+    private EstadoFantasma estadoFantasma;
 
     public Pinky() {
-        this.estado = new EstadoNormal();
+
+        estadoFantasma = new EstadoFantasmaNormal();
     }
 
     public void debilitar() {
-        this.estado = new EstadoDebilitado();
+
+        estadoFantasma = new EstadoFantasmaDebilitado();
     }
 
-    public void chocar(Pacman pacman) {
+    public EstadoPacman chocar(Pacman pacman) {
 
-        this.estado.chocar(pacman);
+        return estadoFantasma.chocar(pacman);
     }
 }
