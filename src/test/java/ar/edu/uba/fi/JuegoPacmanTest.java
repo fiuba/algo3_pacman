@@ -47,7 +47,10 @@ public class JuegoPacmanTest {
 
         pacman.comer(pellet);
         pacman.comer(pinky);
-        pacman.comer(pinky);
+
+        assertDoesNotThrow(() -> {
+            pacman.comer(pinky);
+        });
 
         // shoudnt: raise:
 
