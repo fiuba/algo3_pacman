@@ -19,4 +19,8 @@ Implementar una versión parcial del juego Pacman.
 - Construir un diagrama de clases de la solución,
 - Construir un diagrama de secuencia del caso de uso donde el pacman come a un fantasma debilitado.
 
+# Diagrama de clase 
+
+![dc](http://www.plantuml.com/plantuml/proxy?cache=no&src=https://raw.githubusercontent.com/fiuba/algo3_pacman/solucion/2021-01C/dc.plantuml)
+
 [imagen_pacman]: media/images/pacman.jpg
