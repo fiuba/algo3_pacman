@@ -1,0 +1,49 @@
+@startuml
+
+class Pacman {
+        + comer(f Fantasma)
+        + comer(p Pellet)
+        + morir()
+}
+
+interface Estado
+
+class Fantasma {
+        + colisionar(p Pacman)
+        + debilitar()
+}
+Estado : + colisionar(p Pacman)
+
+Pacman <..> Fantasma
+Pacman ..>  Pellet
+Fantasma *- "1" Estado
+
+class Pellet {
+        + debilitarFantasmas()
+}
+
+Pellet o- "*" Fantasma
+FantasmaDebilitado : + colisionar(p Pacman)
+Estado <|.. FantasmaDebilitado
+FantasmaNoDebilitado : + colisionar(p Pacman)
+Estado <|.. FantasmaNoDebilitado
+FantasmaZombie : + colisionar(p Pacman)
+Estado <|.. FantasmaZombie
+
+note right of Pacman::comer
+    fantasma.colisionar(this)
+end note
+
+note left of FantasmaDebilitado::colisionar
+    return new FantasmaZombie()
+end note
+
+note right of FantasmaNoDebilitado::colisionar
+    pacman.morir()
+end note
+
+note right of FantasmaZombie::colisionar
+    return This()
+end note
+
+@enduml
