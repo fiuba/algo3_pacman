@@ -10,7 +10,7 @@ public class Pacman {
     public void come(Pinky pinky) {
 
         // Problema 3: Viola Open/Close principles.
-        if ( pinky.debilitado ) {
+        if ( pinky.estaDebilitado() ) {
             return;
         }
 
