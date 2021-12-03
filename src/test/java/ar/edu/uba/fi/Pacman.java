@@ -21,7 +21,4 @@ public class Pacman {
         this.vivo = false;
     }
 
-//    public boolean estaVivo() {
-//        return this.vivo;
-//    }
 }
