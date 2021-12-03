@@ -1,6 +1,6 @@
 package ar.edu.uba.fi;
 
-public class Pinky {
+public class Pinky implements Comestible {
 
     private EstadoFantasma estado;
 
@@ -10,9 +10,10 @@ public class Pinky {
     public Pinky(EstadoFantasma estado) {
         this.estado = estado;
     }
-    // Problema 2: Utilizamos una bandera, en lugar de una clase polimorfa.
 
+    @Override
     public void golpea(Pacman pacman) {
+
         this.estado.golpear(pacman);
     }
 
