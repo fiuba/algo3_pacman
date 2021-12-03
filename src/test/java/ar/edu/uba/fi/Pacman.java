@@ -9,14 +9,15 @@ public class Pacman {
 
     public void come(Pinky pinky) {
 
-        // Problema 3: Viola Open/Close principles.
-        if ( pinky.estaDebilitado() ) {
-            return;
-        }
-
-        if ( !this.vivo ) {
+        if (!this.vivo) {
             throw new PacmanEstaMuerto();
         }
+
+        pinky.golpea(this);
+
+    }
+
+    public void muere() {
         this.vivo = false;
     }
 

@@ -14,4 +14,10 @@ public class Pinky {
     public boolean estaDebilitado() {
         return this.debilitado;
     }
+
+    public void golpea(Pacman pacman) {
+        if ( !this.debilitado ) {
+            pacman.muere();
+        }
+    }
 }
