@@ -4,15 +4,15 @@ import java.util.Arrays;
 import java.util.List;
 
 public class Pellet implements Comestible {
-    private List<Pinky> fantasmas;
+    private List<Fantasma> fantasmas;
 
-    public Pellet(Pinky p) {
+    public Pellet(Fantasma p) {
         this.fantasmas = Arrays.asList(p);
     }
 
     @Override
     public void golpea(Pacman pacman) {
-        for (Pinky p : this.fantasmas) {
+        for (Fantasma p : this.fantasmas) {
             p.debilitar();
         }
     }

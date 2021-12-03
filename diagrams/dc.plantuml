@@ -1,5 +1,12 @@
 @startuml
 
+Fantasma <|-- Pinky
+Fantasma <|-- Blinky
+
+@enduml
+
+@startuml
+
 class Pinky {
     + golpear(Pacman pacman);
 }

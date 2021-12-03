@@ -1,13 +1,13 @@
 package ar.edu.uba.fi;
 
-public class Pinky implements Comestible {
+public class Fantasma implements Comestible {
 
     private EstadoFantasma estado;
 
-    public Pinky() {
+    public Fantasma() {
         this.estado = new Normal();
     }
-    public Pinky(EstadoFantasma estado) {
+    public Fantasma(EstadoFantasma estado) {
         this.estado = estado;
     }
 
