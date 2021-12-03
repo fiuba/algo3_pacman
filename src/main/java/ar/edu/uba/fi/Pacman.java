@@ -7,6 +7,20 @@ public class Pacman {
         this.vivo = true;
     }
 
+    public void come(Comida c) {
+        if (!this.vivo) {
+            throw new PacmanEstaMuerto();
+        }
+    }
+
+    public void come(Pellet p) {
+        if (!this.vivo) {
+            throw new PacmanEstaMuerto();
+        }
+
+        p.fueComido();
+    }
+
     public void come(Pinky pinky) {
 
         if (!this.vivo) {
@@ -20,5 +34,4 @@ public class Pacman {
     public void muere() {
         this.vivo = false;
     }
-
 }

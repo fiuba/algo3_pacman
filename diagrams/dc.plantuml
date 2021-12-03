@@ -1,0 +1,22 @@
+@startuml
+
+class Pinky {
+    + golpear(Pacman pacman);
+}
+
+interface EstadoFantasma {
+    + golpear(Pacman pacman);
+}
+
+class Pacman {
+    - vivo : boolean
+
+    + come(Comida c)
+    + come(Pinky pinky)
+    + muere()
+}
+
+Pinky o- "1" EstadoFantasma
+
+EstadoFantasma ..> Pacman
+@enduml

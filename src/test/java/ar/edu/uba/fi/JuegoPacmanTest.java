@@ -11,7 +11,7 @@ public class JuegoPacmanTest {
     @Test
     public void pacmanComeFantasmaNoDebilitadoEntoncesMuere() {
         Pacman pacman = new Pacman();
-        Pinky pinky = new Pinky(false);
+        Pinky pinky = new Pinky();
 
         pacman.come(pinky);
 
@@ -28,12 +28,29 @@ public class JuegoPacmanTest {
     public void pacmanComeFantasmaDebilitadoEntoncesPuedeSeguirComiendoYElFantasmaVaGuarida() {
         Pacman pacman = new Pacman();
 
-        Pinky pinky = new Pinky(true);
+        Pinky pinky = new Pinky(new Debilitado());
 
         pacman.come(pinky);
 
         assertDoesNotThrow(() -> {
             pacman.come(new Comida());
         });
+    }
+
+    @Test
+    public void pacmanComePelletLosFantasmasSeDebilitan() {
+        Pacman pacman = new Pacman();
+        Pinky pinky = new Pinky();
+
+        Pellet p = new Pellet(pinky);
+
+        pacman.come(p);
+        pacman.come(pinky);
+
+        assertDoesNotThrow(() -> {
+            pacman.come(new Comida());
+        });
+
+
     }
 }
