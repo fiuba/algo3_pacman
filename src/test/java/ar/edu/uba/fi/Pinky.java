@@ -1,23 +1,23 @@
 package ar.edu.uba.fi;
 
+import javax.swing.*;
+
 public class Pinky {
 
-    // Promblema 1: Atributo público. Violas Ocultamiento de la información.
-    private boolean debilitado;
+    private final Debilitado estado;
 
     // Problema 2: Utilizamos una bandera, en lugar de una clase polimorfa.
     public Pinky(boolean debilitado) {
 
-        this.debilitado = debilitado;
-    }
+        if ( debilitado ) {
+            this.estado = new Debilitado();
+        } else {
+            this.estado = new Normal();
+        }
 
-    public boolean estaDebilitado() {
-        return this.debilitado;
     }
 
     public void golpea(Pacman pacman) {
-        if ( !this.debilitado ) {
-            pacman.muere();
-        }
+        this.estado.golpear(pacman);
     }
 }
